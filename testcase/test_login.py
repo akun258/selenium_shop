@@ -6,4 +6,4 @@ class TestLogin():
 
     def test_login(self):
         # secret_sauce
-        self.main.login_in("standard_user","secret_sauce").add_shop()
+        self.main.login_in("standard_user","secret_sauce").add_shop(2)
