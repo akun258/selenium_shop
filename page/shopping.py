@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 
 from auto_test_01.selenium_hub.page.base import base
+from auto_test_01.selenium_hub.page.shopping_cart import ShoppingCart
 
 
 class Shopping(base):
@@ -80,6 +81,7 @@ class Shopping(base):
                new_list.append(new_list_title)
            select_sort_text = self.find(By.CLASS_NAME, "active_option").text
            assert select_sort_text == "Price (low to high)"
+           return ShoppingCart(self._driver)
        except Exception as e:
            print(e,"e")
 
