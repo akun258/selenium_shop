@@ -1,15 +1,17 @@
 import time
 from operator import contains
 
+import allure
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 
 from auto_test_01.selenium_hub.page.base import base
 from auto_test_01.selenium_hub.page.shopping_cart import ShoppingCart
 
-
+@allure.feature("商品模块")
 class Shopping(base):
     # 添加商品用例
+    @allure.story("添加商品")
     def add_shop(self,shop_add_num):
         # 判断用户想添加多少个商品，如果超过6个，最大值就是6
         if shop_add_num > 6:
@@ -30,6 +32,7 @@ class Shopping(base):
         return self
 
     # 移除添加商品用例
+    @allure.story("移除商品")
     def remove_shop(self,shop_del_num):
         # 判断用户想添加多少个商品，如果超过6个，最大值就是6
         if shop_del_num > 6:
@@ -47,6 +50,7 @@ class Shopping(base):
         return self
 
     # 查看商品详情用例
+    @allure.story("查看商品详情")
     def view_details(self):
         # 获取商品详情定位
         title_link = self.find(By.ID,'item_4_title_link')
@@ -61,6 +65,7 @@ class Shopping(base):
         return self
 
     # 商品排序
+    @allure.story("商品排序")
     def shop_sort(self):
        try:
            old_list = []

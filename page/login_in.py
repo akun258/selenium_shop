@@ -1,11 +1,12 @@
 import time
 
+import allure
 from selenium.webdriver.common.by import By
 
 from auto_test_01.selenium_hub.page.base import base
 from auto_test_01.selenium_hub.page.shopping import Shopping
 
-
+@allure.feature("登录模块")
 class ShopIndex(base):
     _base_url = "https://www.saucedemo.com/"
     def login_in(self,usn,pwd):

@@ -1,19 +1,22 @@
 import time
 
+import allure
 from selenium.webdriver.common.by import By
 
 from auto_test_01.selenium_hub.page.Information_Page import InformationPage
 from auto_test_01.selenium_hub.page.base import base
 
-
+@allure.feature("购物车模块")
 class ShoppingCart(base):
     # 进入购物车列表
+    @allure.story("查看购物车列表")
     def shopping_cart_list(self):
         self.find(By.ID,"shopping_cart_container").click()
         time.sleep(2)
         assert self._driver.current_url == "https://www.saucedemo.com/cart.html"
         return self
     # 回到选购商品页面
+    @allure.story("回到选购商品页面")
     def back_shopping(self):
         self.find(By.ID,"continue-shopping").click()
         time.sleep(2)
@@ -21,6 +24,7 @@ class ShoppingCart(base):
         return self
 
     #去结算
+    @allure.story("去结算")
     def check_out(self):
         try:
             self.find(By.ID, "checkout").click()
